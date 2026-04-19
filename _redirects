@@ -1,0 +1,18 @@
+# Cloudflare Pages — Redirects
+# Portfolio: Nilay N. Jaltare
+#
+# IMPORTANT: Replace "yourdomain.com" with your actual domain on both lines below.
+# Rules are processed top-to-bottom. First match wins.
+#
+# http → https is handled automatically by CF's "Always Use HTTPS" edge setting.
+# Do NOT add http→https rules here — CF does it faster at the network edge.
+
+# www → apex (301 permanent redirect)
+# Redirects www.yourdomain.com/any/path → yourdomain.com/any/path
+https://www.njaltare.uk/* https://njaltare.uk/:splat 301
+
+# Anchor links (#about, #skills, #projects etc.) are client-side hash routing.
+# They never reach the server — no redirect rules needed for them.
+
+# No SPA catch-all needed. This is a single HTML file.
+# CF Pages serves 404.html automatically for unmatched paths.

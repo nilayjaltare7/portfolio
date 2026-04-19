@@ -1,0 +1,11 @@
+# robots.txt — Nilay N. Jaltare Portfolio
+# Allow all crawlers full access (this is a public portfolio)
+
+User-agent: *
+Allow: /
+
+# Block CF's internal edge paths from being indexed
+Disallow: /cdn-cgi/
+
+# Sitemap location (update domain before deploying)
+Sitemap: https://njaltare.uk/sitemap.xml

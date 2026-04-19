@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- sitemap.xml — Nilay N. Jaltare Portfolio -->
+<!-- IMPORTANT: Replace "yourdomain.com" with your actual domain before deploying -->
+<!-- Update <lastmod> date whenever you re-deploy with content changes -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://njaltare.uk/</loc>
+    <lastmod>2026-04-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>

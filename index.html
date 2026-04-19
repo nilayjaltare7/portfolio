@@ -1,0 +1,1692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nilay N. Jaltare — ML · IIoT · Embedded Linux Engineer</title>
+<link rel="canonical" href="https://njaltare.uk/" />
+<meta name="description" content="Portfolio of Nilay N. Jaltare — ML, IIoT, and Embedded Linux Engineer based in Pune, India." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://njaltare.uk/" />
+<meta property="og:title" content="Nilay N. Jaltare — ML · IIoT · Embedded Linux Engineer" />
+<meta property="og:description" content="Portfolio of Nilay N. Jaltare — ML, IIoT, and Embedded Linux Engineer based in Pune, India." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #080b10;
+    --surface: #0d1018;
+    --surface2: #111622;
+    --surface3: #151b28;
+    --border: #1a2235;
+    --border2: #222d45;
+    --accent: #00d4aa;
+    --accent-dim: rgba(0,212,170,0.12);
+    --accent-border: rgba(0,212,170,0.25);
+    --blue: #4a90e2;
+    --blue-dim: rgba(74,144,226,0.12);
+    --orange: #f5a623;
+    --orange-dim: rgba(245,166,35,0.12);
+    --text: #dde4f0;
+    --muted: #4a5568;
+    --dim: #8892a4;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+  a:hover { opacity: 0.7; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(8,11,16,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    height: 52px;
+    display: flex; align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+  }
+
+  .nav-brand {
+    font-family: var(--mono);
+    font-size: 12px; font-weight: 600;
+    color: var(--accent); letter-spacing: 0.06em;
+  }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--accent); opacity: 1; }
+
+  /* ─── LAYOUT ─── */
+  section { position: relative; z-index: 1; }
+  .container { max-width: 1060px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ─── SECTION HEADER ─── */
+  .sh {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 3rem;
+  }
+  .sh-num {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--accent); letter-spacing: 0.15em;
+  }
+  .sh h2 {
+    font-size: 1.5rem; font-weight: 700;
+    letter-spacing: -0.02em; line-height: 1;
+  }
+  .sh-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh; padding-top: 52px;
+    display: flex; align-items: center;
+    border-bottom: 1px solid var(--border);
+    background: radial-gradient(ellipse 70% 60% at 80% 50%, rgba(0,212,170,0.04) 0%, transparent 70%),
+                linear-gradient(160deg, #080b10 0%, #0a0f18 100%);
+  }
+
+  .hero-wrap {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 4rem; align-items: center;
+    padding: 5rem 0;
+  }
+
+  .hero-kicker {
+    font-family: var(--mono); font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent);
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    margin-bottom: 1.4rem;
+  }
+  .hero-kicker::before { content: ''; width: 28px; height: 1px; background: var(--accent); }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
+    font-weight: 700; line-height: 1.05;
+    letter-spacing: -0.025em; margin-bottom: 0.6rem;
+  }
+
+  .hero-subtitle {
+    font-family: var(--mono); font-size: 13px;
+    color: var(--muted); margin-bottom: 1.6rem; line-height: 1.8;
+  }
+
+  .hero-desc {
+    color: var(--dim); font-size: 14.5px;
+    line-height: 1.85; max-width: 460px;
+    margin-bottom: 2rem;
+  }
+
+  .hero-badges {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .hbadge {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--border2);
+    color: var(--dim);
+    background: var(--surface);
+  }
+  .hbadge.green { border-color: var(--accent-border); color: var(--accent); background: var(--accent-dim); }
+  .hbadge.blue  { border-color: rgba(74,144,226,0.3); color: var(--blue);   background: var(--blue-dim); }
+  .hbadge.orange{ border-color: rgba(245,166,35,0.3); color: var(--orange); background: var(--orange-dim); }
+
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-p {
+    background: var(--accent); color: #080b10;
+    font-family: var(--mono); font-size: 11px;
+    font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.72rem 1.6rem;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+  .btn-p:hover { opacity: 0.82; transform: translateY(-1px); color: #080b10; }
+
+  .btn-o {
+    border: 1px solid var(--border2); color: var(--dim);
+    font-family: var(--mono); font-size: 11px;
+    font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.72rem 1.6rem;
+    transition: all 0.2s; display: inline-block;
+  }
+  .btn-o:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); opacity: 1; }
+
+  /* ─── HERO RIGHT: STATS ─── */
+  .hero-right { display: flex; flex-direction: column; gap: 1px; }
+
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 1px;
+  }
+
+  .stat-cell {
+    background: var(--surface); padding: 1.4rem 1.5rem;
+  }
+
+  .stat-val {
+    font-family: var(--mono); font-size: 1.9rem;
+    font-weight: 600; color: var(--accent);
+    line-height: 1; margin-bottom: 0.3rem;
+  }
+  .stat-lbl {
+    font-size: 10px; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted);
+  }
+
+  .aws-badge {
+    background: var(--surface); border: 1px solid var(--border);
+    padding: 1rem 1.4rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+
+  .aws-icon {
+    width: 38px; height: 38px;
+    background: linear-gradient(135deg, #f59e0b, #ef4444);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; flex-shrink: 0;
+  }
+
+  .aws-text strong { display: block; font-size: 12px; font-weight: 600; color: var(--text); }
+  .aws-text span { font-family: var(--mono); font-size: 10px; color: var(--muted); }
+
+  /* ─── TARGET DOMAINS ─── */
+  #domains {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .domains-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .domain-card {
+    background: var(--bg);
+    padding: 2rem;
+    position: relative; overflow: hidden;
+    transition: background 0.25s;
+  }
+  .domain-card:hover { background: var(--surface2); }
+
+  .domain-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .domain-card.ai::before   { background: var(--accent); }
+  .domain-card.iiot::before { background: var(--blue); }
+  .domain-card.emb::before  { background: var(--orange); }
+
+  .domain-num {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.15em; color: var(--muted);
+    margin-bottom: 1.2rem;
+    display: block;
+  }
+
+  .domain-icon { font-size: 1.8rem; margin-bottom: 0.75rem; display: block; }
+
+  .domain-title {
+    font-size: 15px; font-weight: 700;
+    color: var(--text); margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .domain-sub {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .domain-card.ai   .domain-sub { color: var(--accent); }
+  .domain-card.iiot .domain-sub { color: var(--blue); }
+  .domain-card.emb  .domain-sub { color: var(--orange); }
+
+  .domain-desc {
+    font-size: 13px; color: var(--dim);
+    line-height: 1.75; margin-bottom: 1.2rem;
+  }
+
+  .domain-targets {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.35rem;
+  }
+
+  .domain-targets li {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--muted);
+    padding-left: 1.1rem; position: relative;
+  }
+
+  .domain-targets li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    font-size: 9px;
+  }
+  .domain-card.ai   .domain-targets li::before { color: var(--accent); }
+  .domain-card.iiot .domain-targets li::before { color: var(--blue); }
+  .domain-card.emb  .domain-targets li::before { color: var(--orange); }
+
+  /* ─── ABOUT ─── */
+  #about { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+  .about-grid {
+    display: grid; grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem; align-items: start;
+  }
+
+  .about-text p {
+    color: var(--dim); line-height: 1.9;
+    margin-bottom: 1.1rem; font-size: 14.5px;
+  }
+  .about-text p strong { color: var(--text); font-weight: 600; }
+
+  .info-block { border: 1px solid var(--border); }
+
+  .info-row {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    padding: 0.8rem 1.2rem;
+  }
+  .info-row:last-child { border-bottom: none; }
+
+  .info-key {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--muted); width: 76px; flex-shrink: 0; padding-top: 2px;
+  }
+  .info-val { font-size: 13px; color: var(--text); }
+
+  /* ─── LINUX TERMINAL SECTION ─── */
+  #linux {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .linux-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Terminal panel */
+  .terminal {
+    background: #060810;
+    border: 1px solid var(--border2);
+    font-family: var(--mono);
+    font-size: 12px;
+    overflow: hidden;
+  }
+
+  .term-bar {
+    background: var(--surface2);
+    padding: 0.55rem 1rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot.r { background: #ff5f57; }
+  .dot.y { background: #febc2e; }
+  .dot.g { background: #28c840; }
+
+  .term-title {
+    font-size: 10px; color: var(--muted);
+    margin-left: auto; letter-spacing: 0.08em;
+  }
+
+  .term-body { padding: 1.2rem 1.4rem; line-height: 1.8; }
+
+  .t-prompt { color: var(--accent); }
+  .t-cmd    { color: var(--text); }
+  .t-out    { color: var(--dim); padding-left: 1rem; display: block; }
+  .t-comment{ color: var(--muted); font-style: italic; }
+  .t-val    { color: #f5a623; }
+  .t-key    { color: var(--blue); }
+  .t-ok     { color: var(--accent); }
+  .t-line   { display: block; margin-bottom: 0.1rem; }
+
+  /* Linux skill groups */
+  .linux-skills-panel {
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+
+  .lsk-group {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .lsk-header {
+    background: var(--surface2);
+    padding: 0.65rem 1.2rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .lsk-title {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .lsk-level {
+    font-family: var(--mono); font-size: 9px;
+    color: var(--muted); letter-spacing: 0.06em;
+  }
+
+  .lsk-items {
+    padding: 0.85rem 1.2rem;
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+  }
+
+  .lsk-tag {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--dim); background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 2px 8px;
+    transition: all 0.2s;
+  }
+  .lsk-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ─── HARDWARE PLATFORMS ─── */
+  #hardware {
+    padding: 6rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .hw-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .hw-card {
+    background: var(--surface);
+    padding: 1.8rem;
+    transition: background 0.2s;
+  }
+  .hw-card:hover { background: var(--surface2); }
+
+  .hw-icon { font-size: 2rem; margin-bottom: 0.75rem; display: block; }
+
+  .hw-name {
+    font-size: 14px; font-weight: 700;
+    color: var(--text); margin-bottom: 0.2rem;
+  }
+
+  .hw-sub {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--accent); letter-spacing: 0.08em;
+    margin-bottom: 1rem; display: block;
+  }
+
+  .hw-points {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.45rem;
+  }
+
+  .hw-points li {
+    font-size: 12.5px; color: var(--dim);
+    padding-left: 1rem; position: relative;
+    line-height: 1.55;
+  }
+
+  .hw-points li::before {
+    content: '·'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  #experience { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .exp-card:hover { border-color: var(--border2); }
+
+  .exp-hd {
+    padding: 1.5rem 1.8rem;
+    border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between;
+    align-items: flex-start; gap: 1rem;
+  }
+
+  .exp-role { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 0.3rem; }
+  .exp-co   { font-family: var(--mono); font-size: 12px; color: var(--accent); }
+  .exp-date { font-family: var(--mono); font-size: 11px; color: var(--muted); display: block; text-align: right; }
+  .exp-loc  { font-size: 11px; color: var(--muted); text-align: right; }
+
+  .exp-bd { padding: 1.5rem 1.8rem; }
+
+  .exp-tagline {
+    font-style: italic; font-size: 13px;
+    color: var(--muted); margin-bottom: 1.3rem;
+    padding-bottom: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .exp-cols {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0 2rem;
+  }
+
+  .exp-col-title {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 0.8rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+    grid-column: auto;
+  }
+
+  .exp-ul {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.7rem;
+  }
+
+  .exp-ul li {
+    padding-left: 1.3rem; position: relative;
+    font-size: 13.5px; color: var(--dim); line-height: 1.65;
+  }
+
+  .exp-ul li::before {
+    content: '→'; position: absolute; left: 0;
+    color: var(--accent); font-size: 11px; top: 3px;
+  }
+
+  .exp-ul li strong { color: var(--text); font-weight: 500; }
+
+  .metric {
+    display: inline-block;
+    background: var(--accent-dim); border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.05em; padding: 1px 6px;
+    margin-left: 4px; vertical-align: middle;
+  }
+
+  .metric.b {
+    background: var(--blue-dim); border-color: rgba(74,144,226,0.25); color: var(--blue);
+  }
+
+  /* ─── SKILLS MATRIX ─── */
+  #skills { padding: 6rem 0; border-bottom: 1px solid var(--border); background: var(--surface); }
+
+  .skills-outer {
+    display: flex; flex-direction: column; gap: 1px;
+    background: var(--border); border: 1px solid var(--border);
+  }
+
+  .skills-row {
+    display: grid; gap: 1px; background: var(--border);
+  }
+  .skills-row.r3 { grid-template-columns: repeat(3, 1fr); }
+  .skills-row.r2 { grid-template-columns: repeat(2, 1fr); }
+
+  .sk-cell {
+    background: var(--bg); padding: 1.5rem;
+  }
+
+  .sk-title {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.85rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sk-title.b { color: var(--blue); }
+  .sk-title.o { color: var(--orange); }
+
+  .sk-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+  .sk-tag {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--dim); background: var(--surface2);
+    border: 1px solid var(--border); padding: 3px 8px;
+    transition: all 0.2s;
+  }
+  .sk-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ─── PROJECTS ─── */
+  #projects { padding: 6rem 0; border-bottom: 1px solid var(--border); }
+
+  .projects-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .proj-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    position: relative; overflow: hidden;
+    transition: border-color 0.25s, background 0.25s;
+  }
+
+  .proj-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 3px; background: var(--accent);
+    opacity: 0; transition: opacity 0.25s;
+  }
+
+  .proj-card.b::before { background: var(--blue); }
+  .proj-card.o::before { background: var(--orange); }
+
+  .proj-card:hover { border-color: var(--border2); background: var(--surface2); }
+  .proj-card:hover::before { opacity: 1; }
+
+  .proj-hd {
+    padding: 1.5rem 1.6rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proj-period {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; color: var(--muted);
+    margin-bottom: 0.5rem;
+  }
+
+  .proj-title {
+    font-size: 14px; font-weight: 700;
+    color: var(--text); line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+
+  .proj-org {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent);
+  }
+  .proj-card.b .proj-org { color: var(--blue); }
+  .proj-card.o .proj-org { color: var(--orange); }
+
+  .proj-bd { padding: 1.2rem 1.6rem 1.4rem; }
+
+  .proj-ul {
+    list-style: none; margin-bottom: 1.2rem;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+
+  .proj-ul li {
+    font-size: 13px; color: var(--dim);
+    padding-left: 1.1rem; position: relative;
+    line-height: 1.6;
+  }
+
+  .proj-ul li::before {
+    content: '·'; position: absolute; left: 0;
+    color: var(--accent); font-weight: 700; font-size: 14px;
+  }
+  .proj-card.b .proj-ul li::before { color: var(--blue); }
+  .proj-card.o .proj-ul li::before { color: var(--orange); }
+
+  .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+  .pt {
+    font-family: var(--mono); font-size: 10px;
+    color: var(--muted); border: 1px solid var(--border);
+    background: var(--bg); padding: 2px 7px;
+  }
+
+  /* ─── CERTS + EDU ─── */
+  #certs { padding: 6rem 0; border-bottom: 1px solid var(--border); background: var(--surface); }
+
+  .certs-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .cert-card {
+    background: var(--bg); border: 1px solid var(--border);
+    padding: 1.6rem; display: flex; gap: 1rem;
+    align-items: flex-start; transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: var(--border2); }
+
+  .cert-ico {
+    width: 42px; height: 42px; flex-shrink: 0;
+    background: var(--surface2); border: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+  }
+
+  .cert-info strong {
+    display: block; font-size: 13.5px; font-weight: 700;
+    color: var(--text); margin-bottom: 0.3rem; line-height: 1.35;
+  }
+
+  .cert-info span {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+  }
+
+  .cert-year {
+    font-family: var(--mono); font-size: 11px;
+    color: var(--accent); margin-top: 0.45rem; display: block;
+  }
+
+  /* ─── CONTACT ─── */
+  #contact { padding: 6rem 0; }
+
+  .contact-wrap {
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .contact-top {
+    padding: 2.5rem 2.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .contact-top h3 {
+    font-size: 1.2rem; font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-top p {
+    font-size: 14px; color: var(--dim);
+    line-height: 1.8; max-width: 620px;
+  }
+
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-col {
+    padding: 2rem 2.5rem;
+  }
+  .contact-col:first-child { border-right: 1px solid var(--border); }
+
+  .contact-col-title {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 1.2rem;
+  }
+
+  .contact-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .contact-item:last-child { border-bottom: none; }
+
+  .ci-type {
+    font-family: var(--mono); font-size: 10px;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); width: 62px; flex-shrink: 0; padding-top: 2px;
+  }
+
+  .ci-val { font-size: 13px; color: var(--text); }
+
+  .open-to-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.6rem;
+  }
+
+  .open-to-list li {
+    font-size: 13px; color: var(--dim);
+    padding-left: 1rem; position: relative; line-height: 1.6;
+  }
+
+  .open-to-list li::before {
+    content: '✓'; position: absolute; left: 0;
+    color: var(--accent); font-size: 12px;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 1.4rem 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    position: relative; z-index: 1;
+  }
+
+  footer span {
+    font-family: var(--mono); font-size: 11px; color: var(--muted);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0; transform: translateY(22px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .fade-up.in { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 860px) {
+    .hero-wrap, .about-grid, .linux-grid,
+    .hw-grid, .projects-grid, .certs-grid,
+    .contact-grid, .exp-cols { grid-template-columns: 1fr; }
+    .domains-grid { grid-template-columns: 1fr; }
+    .skills-row.r3 { grid-template-columns: 1fr 1fr; }
+    .skills-row.r2 { grid-template-columns: 1fr; }
+    nav { padding: 0 1.25rem; }
+    .nav-links { display: none; }
+    .container { padding: 0 1.25rem; }
+    .exp-hd { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <span class="nav-brand">NNJ · ML · IIoT · Embedded</span>
+  <ul class="nav-links">
+    <li><a href="#domains">Focus</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#linux">Linux</a></li>
+    <li><a href="#hardware">Hardware</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-wrap">
+      <div>
+        <div class="hero-kicker">ML Engineer · IIoT Specialist · Embedded Linux</div>
+        <h1>Nilay N.<br/>Jaltare</h1>
+        <p class="hero-subtitle">
+          // Edge AI · Industrial IoT · AWS Cloud · Linux Systems<br/>
+          // NVIDIA Jetson · Raspberry Pi · MQTT · LSTM · Transformer
+        </p>
+        <p class="hero-desc">
+          I build intelligent systems that live at the edge — deploying optimised ML models on
+          embedded Linux hardware, engineering low-latency MQTT pipelines, and backing everything
+          with production-grade AWS cloud infrastructure. Currently leading industrial leak detection
+          for live crude oil pipelines at Bharat Flow Analytics.
+        </p>
+        <div class="hero-badges">
+          <span class="hbadge green">NVIDIA Jetson Nano</span>
+          <span class="hbadge green">Raspberry Pi</span>
+          <span class="hbadge green">Jetpack SDK</span>
+          <span class="hbadge blue">AWS IoT Core</span>
+          <span class="hbadge blue">MQTT/TLS</span>
+          <span class="hbadge blue">EDA</span>
+          <span class="hbadge orange">Linux Admin</span>
+          <span class="hbadge orange">CPU Affinity</span>
+          <span class="hbadge orange">Shell Scripting</span>
+        </div>
+        <div class="hero-cta">
+          <a href="#domains" class="btn-p">Explore Focus Areas</a>
+          <a href="mailto:nilayjaltare7@gmail.com" class="btn-o">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="stats-grid">
+          <div class="stat-cell">
+            <div class="stat-val">45%</div>
+            <div class="stat-lbl">Latency Reduction</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">99%</div>
+            <div class="stat-lbl">Transmission Reliability</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">80%</div>
+            <div class="stat-lbl">Faster OTA Deployment</div>
+          </div>
+          <div class="stat-cell">
+            <div class="stat-val">35%</div>
+            <div class="stat-lbl">Processing Speed Gain</div>
+          </div>
+        </div>
+        <div class="aws-badge">
+          <div class="aws-icon">🏅</div>
+          <div class="aws-text">
+            <strong>AWS Certified Machine Learning Engineer</strong>
+            <span>Associate · 2025 · Validated Production ML on AWS</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── TARGET DOMAINS ── -->
+<section id="domains">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">00</span>
+      <h2>Target Focus Areas</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="domains-grid fade-up">
+
+      <div class="domain-card ai">
+        <span class="domain-num">01 / 03</span>
+        <span class="domain-icon">🧠</span>
+        <div class="domain-title">Artificial Intelligence &amp; Machine Learning</div>
+        <div class="domain-sub">Edge AI · Time-Series · Anomaly Detection</div>
+        <p class="domain-desc">
+          Hands-on experience building and deploying LSTM, Transformer, and Autoencoder architectures for
+          real-time anomaly detection on live industrial sensor data. Trained models are optimised for
+          low-power edge hardware using TensorFlow and PyTorch, with production deployments on NVIDIA Jetson
+          platforms running embedded Linux. AWS SageMaker and Bedrock experience rounds out the cloud-side ML stack.
+        </p>
+        <ul class="domain-targets">
+          <li>ML Engineer — Edge AI / Inference Optimisation</li>
+          <li>Applied Scientist — Industrial / Predictive Maintenance</li>
+          <li>AI Platform Engineer — AWS / SageMaker</li>
+          <li>Computer Vision Engineer (OpenCV, PyTorch)</li>
+        </ul>
+      </div>
+
+      <div class="domain-card iiot">
+        <span class="domain-num">02 / 03</span>
+        <span class="domain-icon">🏭</span>
+        <div class="domain-title">Industrial IoT &amp; Cloud Architecture</div>
+        <div class="domain-sub">IIoT · MQTT · AWS IoT Core · EDA</div>
+        <p class="domain-desc">
+          Built production IIoT systems for crude oil pipeline monitoring — end-to-end: from UART sensor
+          interfaces and MQTT/TLS pipelines through AWS IoT Core, Lambda, DynamoDB, and S3, to real-time
+          Gunicorn-served dashboards. Implemented Event-Driven Architectures achieving sub-10ms event
+          propagation and OTA firmware updates eliminating the need for manual field visits.
+        </p>
+        <ul class="domain-targets">
+          <li>IIoT Platform Engineer</li>
+          <li>Embedded IoT Systems Engineer</li>
+          <li>Cloud IoT Architect — AWS</li>
+          <li>OT/IT Integration Engineer</li>
+        </ul>
+      </div>
+
+      <div class="domain-card emb">
+        <span class="domain-num">03 / 03</span>
+        <span class="domain-icon">⚙️</span>
+        <div class="domain-title">Embedded Linux &amp; Systems Engineering</div>
+        <div class="domain-sub">Linux · Jetson · RPi · Shell · Systems</div>
+        <p class="domain-desc">
+          Deep practical Linux experience on NVIDIA Jetson Nano (Jetpack SDK, L4T) and Raspberry Pi — CPU
+          affinity tuning, dynamic frequency scaling, real-time process management, serial communication
+          (UART/AT), and automated system monitoring via shell scripting. Comfortable at the hardware-software
+          boundary: from PCB electrical spec alignment to embedded firmware and kernel-level system optimisation.
+        </p>
+        <ul class="domain-targets">
+          <li>Embedded Linux Engineer — NVIDIA, Qualcomm, NXP</li>
+          <li>Systems Software Engineer — Edge Platforms</li>
+          <li>Firmware / BSP Engineer — Jetson / ARM</li>
+          <li>Linux Platform Engineer — Robotics / Autonomous Systems</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">01</span>
+      <h2>About</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="about-grid fade-up">
+      <div class="about-text">
+        <p>
+          I'm a <strong>Machine Learning and IoT Engineer (SDE-I)</strong> at Bharat Flow Analytics, Pune,
+          where I lead the design, deployment, and client delivery of ML-powered leak detection systems
+          for live crude oil and utility pipeline operations across India.
+        </p>
+        <p>
+          My work lives at three intersections: <strong>embedded Linux systems</strong> (NVIDIA Jetson Nano,
+          Raspberry Pi), <strong>ML model engineering</strong> (LSTM, Transformer, Autoencoder architectures),
+          and <strong>cloud-backed IIoT infrastructure</strong> (AWS IoT Core, Lambda, DynamoDB, SNS).
+          I've tuned systems at the kernel level — CPU affinity for core-specific task allocation,
+          dynamic frequency scaling, and Linux-based automation scripts for real-time metrics monitoring.
+        </p>
+        <p>
+          On the Linux side, I'm proficient in system administration, shell scripting, log analysis with
+          <strong>grep/regex pipelines</strong>, process and performance management, and embedded system
+          configuration on Jetpack SDK. My systems run on field hardware in conditions where reliability
+          is non-negotiable — a context that forces precision.
+        </p>
+        <p>
+          I mentor engineering interns, coordinate with third-party PCB hardware vendors, and manage
+          the full product lifecycle from technical consultation through field trial. I hold a
+          <strong>B.Tech in ECE with an AI/ML minor</strong> from MIT World Peace University, and am
+          AWS Certified in Machine Learning.
+        </p>
+      </div>
+      <div class="info-block">
+        <div class="info-row">
+          <span class="info-key">Location</span>
+          <span class="info-val">Pune, India</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Current</span>
+          <span class="info-val">SDE-I · Bharat Flow Analytics</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">OS</span>
+          <span class="info-val">Linux (primary), Ubuntu, L4T/Jetpack</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Hardware</span>
+          <span class="info-val">NVIDIA Jetson Nano · Raspberry Pi</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Cloud</span>
+          <span class="info-val">AWS · IoT Core · SageMaker · Bedrock</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">B.Tech</span>
+          <span class="info-val">ECE + AI/ML Minor · MIT WPU · 2025</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">Lang</span>
+          <span class="info-val">English · Hindi · German (B1)</span>
+        </div>
+        <div class="info-row">
+          <span class="info-key">GitHub</span>
+          <span class="info-val"><a href="https://github.com/nilayjaltare7" target="_blank">github.com/nilayjaltare7</a></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── LINUX & SYSTEMS ── -->
+<section id="linux">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">02</span>
+      <h2>Linux &amp; Systems Proficiency</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="linux-grid fade-up">
+
+      <!-- Terminal Showcase -->
+      <div>
+        <div class="terminal">
+          <div class="term-bar">
+            <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+            <span class="term-title">nilay@jetson-nano:~$</span>
+          </div>
+          <div class="term-body">
+            <span class="t-line"><span class="t-comment"># CPU affinity — pin ML inference to cores 2-3</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">taskset -cp 2-3 $(pgrep inference_engine)</span></span>
+            <span class="t-line"><span class="t-out">pid <span class="t-val">3847</span>'s current affinity list: <span class="t-val">0-3</span></span></span>
+            <span class="t-line"><span class="t-out">pid <span class="t-val">3847</span>'s new affinity list:     <span class="t-val">2-3</span> <span class="t-ok">✓</span></span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># Dynamic frequency scaling — max performance governor</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">sudo jetson_clocks --show</span></span>
+            <span class="t-line"><span class="t-out">CPU: <span class="t-key">online</span>=0-3  governor=<span class="t-val">performance</span>  freq=<span class="t-ok">1479000</span></span></span>
+            <span class="t-line"><span class="t-out">GPU: <span class="t-val">921600000</span> Hz  EMC: <span class="t-val">1600000000</span> Hz</span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># Real-time system metrics monitor script</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">./monitor.sh --interval 500ms --log /var/log/telemetry</span></span>
+            <span class="t-line"><span class="t-out">[<span class="t-val">00:00:01</span>] CPU=<span class="t-ok">38%</span>  MEM=<span class="t-ok">62%</span>  TEMP=<span class="t-val">43°C</span>  MQTT=<span class="t-ok">UP</span></span></span>
+            <span class="t-line"><span class="t-out">[<span class="t-val">00:00:02</span>] CPU=<span class="t-ok">41%</span>  MEM=<span class="t-ok">63%</span>  TEMP=<span class="t-val">44°C</span>  MQTT=<span class="t-ok">UP</span></span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># Log analysis pipeline with grep + regex</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">grep -E "ANOMALY|ALERT" /var/log/pipeline.log \</span></span>
+            <span class="t-line"><span class="t-cmd">  | awk '{print $1, $2, $NF}' \</span></span>
+            <span class="t-line"><span class="t-cmd">  | sort | uniq -c | tail -20</span></span>
+            <span class="t-line"><span class="t-out">  3 2025-04-12 08:14:02 ANOMALY:pressure_spike</span></span>
+            <span class="t-line"><span class="t-out">  1 2025-04-12 08:14:09 ALERT:threshold_breach</span></span>
+            <span class="t-line">&nbsp;</span>
+            <span class="t-line"><span class="t-comment"># UART serial interface — AT command validation</span></span>
+            <span class="t-line"><span class="t-prompt">$ </span><span class="t-cmd">stty -F /dev/ttyUSB0 9600 raw && echo "AT" > /dev/ttyUSB0</span></span>
+            <span class="t-line"><span class="t-out">OK  <span class="t-ok">← device handshake confirmed</span></span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linux skill groups -->
+      <div class="linux-skills-panel">
+
+        <div class="lsk-group">
+          <div class="lsk-header">
+            <span class="lsk-title">Process &amp; Performance Management</span>
+            <span class="lsk-level">PRODUCTION EXPERIENCE</span>
+          </div>
+          <div class="lsk-items">
+            <span class="lsk-tag">CPU Affinity (taskset)</span>
+            <span class="lsk-tag">Dynamic Freq Scaling</span>
+            <span class="lsk-tag">jetson_clocks</span>
+            <span class="lsk-tag">htop / top</span>
+            <span class="lsk-tag">nice / renice</span>
+            <span class="lsk-tag">systemd services</span>
+            <span class="lsk-tag">cgroups</span>
+            <span class="lsk-tag">Process scheduling</span>
+          </div>
+        </div>
+
+        <div class="lsk-group">
+          <div class="lsk-header">
+            <span class="lsk-title">Shell Scripting &amp; Automation</span>
+            <span class="lsk-level">PRODUCTION EXPERIENCE</span>
+          </div>
+          <div class="lsk-items">
+            <span class="lsk-tag">Bash scripting</span>
+            <span class="lsk-tag">grep / regex</span>
+            <span class="lsk-tag">awk / sed</span>
+            <span class="lsk-tag">cron / crontab</span>
+            <span class="lsk-tag">Log analysis</span>
+            <span class="lsk-tag">System monitoring scripts</span>
+            <span class="lsk-tag">Pipe &amp; redirection</span>
+            <span class="lsk-tag">xargs</span>
+          </div>
+        </div>
+
+        <div class="lsk-group">
+          <div class="lsk-header">
+            <span class="lsk-title">Embedded Linux / Jetpack / BSP</span>
+            <span class="lsk-level">PRODUCTION EXPERIENCE</span>
+          </div>
+          <div class="lsk-items">
+            <span class="lsk-tag">Jetpack SDK</span>
+            <span class="lsk-tag">L4T (Linux for Tegra)</span>
+            <span class="lsk-tag">NVIDIA Jetson Nano</span>
+            <span class="lsk-tag">Raspberry Pi OS</span>
+            <span class="lsk-tag">GPIO / I2C / SPI</span>
+            <span class="lsk-tag">UART / AT Commands</span>
+            <span class="lsk-tag">Serial comms (tty)</span>
+            <span class="lsk-tag">OTA updates</span>
+          </div>
+        </div>
+
+        <div class="lsk-group">
+          <div class="lsk-header">
+            <span class="lsk-title">Networking &amp; System Admin</span>
+            <span class="lsk-level">PROFICIENT</span>
+          </div>
+          <div class="lsk-items">
+            <span class="lsk-tag">MQTT/TLS</span>
+            <span class="lsk-tag">systemd-networkd</span>
+            <span class="lsk-tag">iptables / UFW</span>
+            <span class="lsk-tag">SSH / rsync</span>
+            <span class="lsk-tag">Filesystem management</span>
+            <span class="lsk-tag">Package management (apt)</span>
+            <span class="lsk-tag">Docker on Linux</span>
+            <span class="lsk-tag">User/permission mgmt</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── HARDWARE PLATFORMS ── -->
+<section id="hardware">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">03</span>
+      <h2>Hardware Platforms &amp; Embedded Experience</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="hw-grid fade-up">
+
+      <div class="hw-card">
+        <span class="hw-icon">🟢</span>
+        <div class="hw-name">NVIDIA Jetson Nano</div>
+        <span class="hw-sub">ARM Cortex-A57 · 128-core Maxwell GPU · Jetpack SDK</span>
+        <ul class="hw-points">
+          <li>Deployed real-time ML inference for leak detection anomaly classification on live pipeline sensor data.</li>
+          <li>CPU affinity-based task allocation across 4 cores — <strong>25% workload efficiency gain</strong>.</li>
+          <li>Dynamic frequency scaling via <code>jetson_clocks</code> — <strong>35% processing speed improvement</strong>.</li>
+          <li>Developed and maintained MQTT/TLS pipelines to AWS IoT Core with sub-10ms event propagation.</li>
+          <li>Linux-based scripting for real-time acquisition, process monitoring, and automated alerting.</li>
+          <li>Configured Jetpack SDK, L4T runtime, and CUDA-accelerated OpenCV for edge vision pipelines.</li>
+        </ul>
+      </div>
+
+      <div class="hw-card">
+        <span class="hw-icon">🔴</span>
+        <div class="hw-name">Raspberry Pi</div>
+        <span class="hw-sub">ARM Cortex-A72 · Raspberry Pi OS (Debian Linux)</span>
+        <ul class="hw-points">
+          <li>Designed and deployed a robust edge data logger monitoring critical industrial parameters in the field.</li>
+          <li>Implemented secure MQTT/TLS pipeline to AWS IoT Core achieving <strong>99% transmission reliability</strong>.</li>
+          <li>Architected OTA firmware update system — <strong>80% reduction in firmware deployment time</strong>, eliminating manual field visits.</li>
+          <li>Developed Python automation scripts for edge-side data acquisition, local anomaly detection, and DynamoDB/S3 logging.</li>
+          <li>Integrated AWS SNS alerting, improving incident response time by <strong>40%</strong>.</li>
+          <li>Configured GPIO/UART interfaces for hardware sensor integration and AT command validation.</li>
+        </ul>
+      </div>
+
+      <div class="hw-card">
+        <span class="hw-icon">🔌</span>
+        <div class="hw-name">PCB &amp; Hardware Integration</div>
+        <span class="hw-sub">Embedded Hardware-Software Interface</span>
+        <ul class="hw-points">
+          <li>Technical point-of-contact for third-party PCB manufacturers — aligning electrical design specs with embedded software requirements.</li>
+          <li>Serial communication (UART / AT commands) for sensor data acquisition from field devices.</li>
+          <li>Payload parser development and device shadow management in AWS IoT Core for sensor state synchronisation.</li>
+          <li>Field hardware deployment on live crude oil pipelines — resolved false-alarm anomalies through algorithmic and hardware-level refinements.</li>
+          <li>Experience with signal conditioning, sensor calibration, and real-time data acquisition.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">04</span>
+      <h2>Experience</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <!-- SDE-I -->
+    <div class="exp-card fade-up">
+      <div class="exp-hd">
+        <div>
+          <div class="exp-role">Software Development Engineer – I</div>
+          <div class="exp-co">Bharat Flow Analytics · bharatflow.in</div>
+        </div>
+        <div>
+          <span class="exp-date">Jun 2025 – Present</span>
+          <span class="exp-loc">Pune, India</span>
+        </div>
+      </div>
+      <div class="exp-bd">
+        <p class="exp-tagline">
+          ML model design, cloud-integrated dashboards, and client-facing technical delivery for industrial leak detection across the organisation's product portfolio.
+        </p>
+        <div class="exp-cols">
+          <div>
+            <div class="exp-col-title">Machine Learning &amp; Systems</div>
+            <ul class="exp-ul">
+              <li><strong>Time-Series Models:</strong> Developed and validated LSTM and Transformer-based classification models on telemetry datasets — significant improvement in precision and F1 score for leak detection accuracy.</li>
+              <li><strong>Cloud Architecture:</strong> End-to-end monitoring stack on AWS (EC2, S3, SNS) ingesting edge sensor data with Gunicorn-served real-time analytics dashboard. <span class="metric">~45% cost savings</span></li>
+              <li><strong>Desktop Analytics:</strong> Cross-platform Tkinter/PyQt visualisation apps packaged as standalone executables for offline field engineering. <span class="metric">+20% UX score</span></li>
+              <li><strong>Industrial Deployment:</strong> Led transition from test to live crude oil pipeline operations — resolved false alarm anomalies through algorithmic refinement.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="exp-col-title">Embedded Linux &amp; Leadership</div>
+            <ul class="exp-ul">
+              <li><strong>Project Leadership:</strong> Managed full product lifecycle from concept to field trial — coordinating with client stakeholders, hardware vendors, and intern teams simultaneously.</li>
+              <li><strong>Linux Systems:</strong> Continued ownership of embedded Linux configurations on Jetson Nano deployments — process management, system monitoring scripts, and MQTT pipeline stability under field conditions.</li>
+              <li><strong>Hardware Liaison:</strong> Technical point-of-contact for third-party PCB firms — aligning electrical design with embedded firmware requirements.</li>
+              <li><strong>Intern Mentorship:</strong> Guided engineering interns on ML model development, IoT integration patterns, and Linux-based product engineering best practices.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Engineering Intern -->
+    <div class="exp-card fade-up">
+      <div class="exp-hd">
+        <div>
+          <div class="exp-role">Engineering Intern</div>
+          <div class="exp-co">Bharat Flow Analytics</div>
+        </div>
+        <div>
+          <span class="exp-date">Jun 2024 – Jun 2025</span>
+          <span class="exp-loc">Pune, India</span>
+        </div>
+      </div>
+      <div class="exp-bd">
+        <p class="exp-tagline">
+          Deployed scalable, cloud-connected IoT solutions contributing to a production-ready leak detection system for oil and utility pipelines.
+        </p>
+        <div class="exp-cols">
+          <div>
+            <div class="exp-col-title">Edge &amp; IoT Engineering</div>
+            <ul class="exp-ul">
+              <li>Validated and deployed ML models for leak detection on edge devices. <span class="metric">+30% system reliability</span></li>
+              <li>Designed Event-Driven Architecture (EDA) using AWS IoT triggers and Lambda. <span class="metric">-45% latency</span></li>
+              <li>MQTT pipelines between NVIDIA Jetson Nano and AWS IoT Core with <strong>sub-10ms event propagation</strong>.</li>
+              <li>Built custom payload parsers and device shadows in AWS IoT Core with Lambda, DynamoDB, and S3 for real-time processing and long-term storage.</li>
+            </ul>
+          </div>
+          <div>
+            <div class="exp-col-title">Linux Systems Optimisation</div>
+            <ul class="exp-ul">
+              <li>Implemented <strong>CPU affinity</strong> (taskset) for core-specific ML inference task allocation on Jetson Nano. <span class="metric b">+25% workload efficiency</span></li>
+              <li>Applied <strong>dynamic frequency scaling</strong> via jetson_clocks for real-time acquisition performance. <span class="metric">+35% speed</span> <span class="metric">-50% latency</span></li>
+              <li>Configured Jetpack SDK and Linux-based scripting for embedded system automation, boot services, and operational monitoring.</li>
+              <li>Developed shell scripts for real-time system metrics monitoring, log analysis using grep/regex pipelines, and automated task management on field hardware.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linux Admin Project (ongoing) -->
+    <div class="exp-card fade-up">
+      <div class="exp-hd">
+        <div>
+          <div class="exp-role">Linux Administration &amp; Shell Scripting</div>
+          <div class="exp-co">Personal Project · github.com/nilayjaltare7</div>
+        </div>
+        <div>
+          <span class="exp-date">Feb 2024 – Present</span>
+          <span class="exp-loc">Continuous Development</span>
+        </div>
+      </div>
+      <div class="exp-bd">
+        <p class="exp-tagline">
+          Ongoing hands-on Linux systems study — building production-quality shell utilities for system administration, monitoring, and log management.
+        </p>
+        <ul class="exp-ul">
+          <li>Created shell scripts for <strong>real-time system metrics monitoring</strong> — CPU, memory, temperature, and process health dashboards.</li>
+          <li>Proficient in text processing and log analysis using <strong>grep, regex, awk, and sed</strong> pipelines for structured log extraction.</li>
+          <li>System management automation — cron-driven tasks, log rotation, disk usage monitoring, and service health checks.</li>
+          <li>Applied directly to production embedded Linux deployments on NVIDIA Jetson Nano and Raspberry Pi field hardware.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">05</span>
+      <h2>Technical Skills</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="skills-outer fade-up">
+      <div class="skills-row r3">
+
+        <div class="sk-cell">
+          <div class="sk-title o">Linux &amp; Embedded Systems</div>
+          <div class="sk-tags">
+            <span class="sk-tag">Bash / Shell Scripting</span>
+            <span class="sk-tag">CPU Affinity (taskset)</span>
+            <span class="sk-tag">Freq Scaling</span>
+            <span class="sk-tag">systemd</span>
+            <span class="sk-tag">grep / awk / sed</span>
+            <span class="sk-tag">Log Analysis</span>
+            <span class="sk-tag">Process Mgmt</span>
+            <span class="sk-tag">Jetpack SDK</span>
+            <span class="sk-tag">L4T</span>
+            <span class="sk-tag">Raspberry Pi OS</span>
+            <span class="sk-tag">UART / AT Commands</span>
+            <span class="sk-tag">Docker on Linux</span>
+          </div>
+        </div>
+
+        <div class="sk-cell">
+          <div class="sk-title">ML &amp; Data Science</div>
+          <div class="sk-tags">
+            <span class="sk-tag">TensorFlow / Keras</span>
+            <span class="sk-tag">PyTorch</span>
+            <span class="sk-tag">Scikit-learn</span>
+            <span class="sk-tag">XGBoost</span>
+            <span class="sk-tag">LSTM</span>
+            <span class="sk-tag">Transformer</span>
+            <span class="sk-tag">Autoencoder (CAE)</span>
+            <span class="sk-tag">OpenCV</span>
+            <span class="sk-tag">Pandas / NumPy</span>
+            <span class="sk-tag">Matplotlib / Seaborn</span>
+            <span class="sk-tag">Anomaly Detection</span>
+          </div>
+        </div>
+
+        <div class="sk-cell">
+          <div class="sk-title b">AWS &amp; Cloud IoT</div>
+          <div class="sk-tags">
+            <span class="sk-tag">AWS IoT Core</span>
+            <span class="sk-tag">Lambda</span>
+            <span class="sk-tag">SageMaker</span>
+            <span class="sk-tag">Bedrock</span>
+            <span class="sk-tag">EC2 / EBS</span>
+            <span class="sk-tag">S3</span>
+            <span class="sk-tag">DynamoDB</span>
+            <span class="sk-tag">SNS / SQS</span>
+            <span class="sk-tag">Device Shadows</span>
+            <span class="sk-tag">EDA</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="skills-row r3">
+
+        <div class="sk-cell">
+          <div class="sk-title o">Edge Hardware &amp; IoT Protocols</div>
+          <div class="sk-tags">
+            <span class="sk-tag">NVIDIA Jetson Nano</span>
+            <span class="sk-tag">Raspberry Pi</span>
+            <span class="sk-tag">MQTT / TLS</span>
+            <span class="sk-tag">UART / Serial</span>
+            <span class="sk-tag">GPIO / I2C / SPI</span>
+            <span class="sk-tag">OTA Firmware Updates</span>
+            <span class="sk-tag">Real-Time Acquisition</span>
+            <span class="sk-tag">Sensor Telemetry</span>
+          </div>
+        </div>
+
+        <div class="sk-cell">
+          <div class="sk-title">Programming &amp; DevOps</div>
+          <div class="sk-tags">
+            <span class="sk-tag">Python</span>
+            <span class="sk-tag">C++</span>
+            <span class="sk-tag">Shell Scripting</span>
+            <span class="sk-tag">React</span>
+            <span class="sk-tag">MSSQL</span>
+            <span class="sk-tag">Git / GitHub</span>
+            <span class="sk-tag">Docker</span>
+            <span class="sk-tag">Gunicorn</span>
+          </div>
+        </div>
+
+        <div class="sk-cell">
+          <div class="sk-title b">Desktop &amp; Leadership</div>
+          <div class="sk-tags">
+            <span class="sk-tag">Tkinter / PyQt</span>
+            <span class="sk-tag">Executable Packaging</span>
+            <span class="sk-tag">Tech Lead</span>
+            <span class="sk-tag">Intern Mentorship</span>
+            <span class="sk-tag">Client Delivery</span>
+            <span class="sk-tag">Vendor Coordination</span>
+            <span class="sk-tag">Product Lifecycle</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">06</span>
+      <h2>Projects</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <div class="projects-grid">
+
+      <div class="proj-card o fade-up">
+        <div class="proj-hd">
+          <div class="proj-period">FEB 2025 – APR 2025</div>
+          <div class="proj-title">Remote Edge Device Management — Oil Industry</div>
+          <div class="proj-org">Bharat Flow Analytics · github.com/nilayjaltare7</div>
+        </div>
+        <div class="proj-bd">
+          <ul class="proj-ul">
+            <li>Raspberry Pi edge data logger monitoring critical industrial parameters in field conditions.</li>
+            <li>Secure MQTT/TLS pipeline to AWS IoT Core — <strong>99% transmission reliability</strong> in field deployments.</li>
+            <li>OTA firmware update system via AWS — <strong>80% reduction</strong> in deployment time, no manual field visits.</li>
+            <li>AWS SNS-integrated alerting reduced incident response time by <strong>40%</strong>.</li>
+            <li>Python automation scripts for edge-side acquisition, local anomaly detection, and DynamoDB/S3 batch logging.</li>
+            <li>Linux shell scripts for monitoring connectivity, managing services, and log rotation on Pi hardware.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="pt">Raspberry Pi</span>
+            <span class="pt">Linux</span>
+            <span class="pt">MQTT/TLS</span>
+            <span class="pt">AWS IoT Core</span>
+            <span class="pt">OTA</span>
+            <span class="pt">Lambda</span>
+            <span class="pt">DynamoDB</span>
+            <span class="pt">SNS</span>
+            <span class="pt">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card fade-up">
+        <div class="proj-hd">
+          <div class="proj-period">OCT 2025 – JAN 2026</div>
+          <div class="proj-title">Claude Integration via Model Context Protocol (MCP)</div>
+          <div class="proj-org">Personal Project · LLM + Private Knowledge</div>
+        </div>
+        <div class="proj-bd">
+          <ul class="proj-ul">
+            <li>Integrated Claude with Notion via MCP for context-aware querying of personal and technical knowledge bases — domain-specific retrieval without external web search.</li>
+            <li>Bridged LLM capabilities with structured private data sources, significantly improving accuracy of technical information retrieval.</li>
+            <li>Demonstrates understanding of AI system architecture, API integration patterns, and structured data pipelines.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="pt">Claude API</span>
+            <span class="pt">MCP</span>
+            <span class="pt">Notion</span>
+            <span class="pt">LLM Integration</span>
+            <span class="pt">Python</span>
+            <span class="pt">REST API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card b fade-up">
+        <div class="proj-hd">
+          <div class="proj-period">DEC 2024 – MAR 2025</div>
+          <div class="proj-title">Hybrid LSTM-XGBoost Stock Price Prediction</div>
+          <div class="proj-org">github.com/nilayjaltare7</div>
+        </div>
+        <div class="proj-bd">
+          <ul class="proj-ul">
+            <li>Modular prediction pipeline in Python processing 5+ years of historical data with TensorFlow/Keras and XGBoost.</li>
+            <li>LSTM for time-series feature extraction combined with XGBoost for robust regression — <strong>MAPE of 2.3%</strong>, <strong>R² of 0.94</strong>.</li>
+            <li>Significantly outperformed ARIMA and naive baseline models in robustness and prediction accuracy.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="pt">LSTM</span>
+            <span class="pt">XGBoost</span>
+            <span class="pt">TensorFlow</span>
+            <span class="pt">Time-Series</span>
+            <span class="pt">Python</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card b fade-up">
+        <div class="proj-hd">
+          <div class="proj-period">MAY 2024 – JUL 2024</div>
+          <div class="proj-title">Image Colorization via Convolutional Autoencoders</div>
+          <div class="proj-org">github.com/nilayjaltare7</div>
+        </div>
+        <div class="proj-bd">
+          <ul class="proj-ul">
+            <li>Skip-Loss CAE architecture achieving <strong>PSNR 28.7 dB</strong> and <strong>SSIM 0.89</strong> — 15% improved colour accuracy over standard CAE.</li>
+            <li>Designed and benchmarked two deep learning architectures in PyTorch with convolutional layers and ReLU activations for spatial feature learning.</li>
+            <li>Demonstrates depth in generative deep learning and computer vision, applicable to NVIDIA Jetson vision pipeline contexts.</li>
+          </ul>
+          <div class="proj-tags">
+            <span class="pt">PyTorch</span>
+            <span class="pt">Skip-Loss CAE</span>
+            <span class="pt">Computer Vision</span>
+            <span class="pt">CNN</span>
+            <span class="pt">OpenCV</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CERTIFICATIONS ── -->
+<section id="certs">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">07</span>
+      <h2>Certifications &amp; Education</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="certs-grid fade-up">
+
+      <div class="cert-card">
+        <div class="cert-ico">🏅</div>
+        <div class="cert-info">
+          <strong>AWS Certified Machine Learning Engineer — Associate</strong>
+          <span>AWS Certificate Manager · Developing, deploying, and maintaining ML solutions on AWS</span>
+          <span class="cert-year">2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-ico">🎓</div>
+        <div class="cert-info">
+          <strong>Professional Certification in AI &amp; Emerging Technologies</strong>
+          <span>IIT Hyderabad · AI, Blockchain, IoT &amp; Quantum Computing — project-based</span>
+          <span class="cert-year">2024</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-ico">📐</div>
+        <div class="cert-info">
+          <strong>B.Tech — Electronics &amp; Communication Engineering</strong>
+          <span>Minor in Artificial Intelligence &amp; Machine Learning · MIT World Peace University, Pune</span>
+          <span class="cert-year">2025</span>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-ico">🇩🇪</div>
+        <div class="cert-info">
+          <strong>Goethe-Zertifikat B1 — German Language</strong>
+          <span>Goethe-Institut · Pune — demonstrates structured learning discipline and global readiness</span>
+          <span class="cert-year">2024</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="container">
+    <div class="sh fade-up">
+      <span class="sh-num">08</span>
+      <h2>Contact</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div class="contact-wrap fade-up">
+      <div class="contact-top">
+        <h3>Open to the right opportunity.</h3>
+        <p>
+          I'm actively looking for roles in ML engineering, industrial IoT systems, and embedded Linux engineering —
+          particularly with companies that build products where Linux runs close to the metal: NVIDIA, Qualcomm,
+          NXP, Arm, or engineering-led startups in robotics, autonomous systems, or industrial AI. If you're
+          building something that benefits from both edge hardware depth and cloud architecture experience, let's talk.
+        </p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-col">
+          <div class="contact-col-title">Get in touch</div>
+          <div class="contact-item">
+            <span class="ci-type">Email</span>
+            <span class="ci-val"><a href="mailto:nilayjaltare7@gmail.com">nilayjaltare7@gmail.com</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-type">Phone</span>
+            <span class="ci-val">+91 8600 400 581</span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-type">GitHub</span>
+            <span class="ci-val"><a href="https://github.com/nilayjaltare7" target="_blank">github.com/nilayjaltare7</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-type">LinkedIn</span>
+            <span class="ci-val"><a href="https://linkedin.com/in/nilayjaltare" target="_blank">linkedin.com/in/nilayjaltare</a></span>
+          </div>
+          <div class="contact-item">
+            <span class="ci-type">Location</span>
+            <span class="ci-val">Pune, India · Open to relocation</span>
+          </div>
+        </div>
+        <div class="contact-col">
+          <div class="contact-col-title">Open to</div>
+          <ul class="open-to-list">
+            <li>Embedded Linux / Systems Software Engineer roles</li>
+            <li>ML / Edge AI Engineer positions (NVIDIA, Qualcomm ecosystem)</li>
+            <li>Industrial IoT platform and architecture roles</li>
+            <li>Firmware / BSP Engineer — ARM/Jetson platforms</li>
+            <li>Robotics, autonomous systems, or industrial AI startups</li>
+            <li>Remote, hybrid, or Pune-based opportunities</li>
+            <li>Response within 24 hours</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>© 2025 Nilay N. Jaltare</span>
+  <span>ML · IIoT · Embedded Linux · Pune, India</span>
+</footer>
+
+<script>
+  // Scroll-triggered fade-in
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('in'), i * 70);
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => io.observe(el));
+
+  // Nav active link highlight
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sections = document.querySelectorAll('section[id]');
+  const sio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => {
+          l.classList.toggle('active', l.getAttribute('href') === `#${e.target.id}`);
+        });
+      }
+    });
+  }, { threshold: 0.35 });
+  sections.forEach(s => sio.observe(s));
+</script>
+</body>
+</html>

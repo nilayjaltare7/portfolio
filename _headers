@@ -1,0 +1,38 @@
+# Cloudflare Pages — Security Headers
+# Portfolio: Nilay N. Jaltare (nilay_portfolio_v2 / index.html)
+# Every directive below is derived from actual dependencies found in the HTML.
+# Do NOT tighten script-src or style-src — all CSS and JS are inline in the HTML.
+
+/*
+  # Prevents page from being embedded in iframes (clickjacking protection)
+  X-Frame-Options: DENY
+
+  # Prevents MIME-type sniffing
+  X-Content-Type-Options: nosniff
+
+  # No referrer info sent on external navigation
+  Referrer-Policy: no-referrer
+
+  # Disable browser features not used by the portfolio
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+
+  # Force HTTPS for 1 year after first visit (do not add 'preload' unless you submit to the HSTS preload list)
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+  # Content Security Policy — see line-by-line explanation below
+  #
+  # default-src 'self'               → fallback: only same-origin resources
+  # style-src   'unsafe-inline'      → ALL CSS is in <style> tags; cannot remove this without refactoring
+  #             fonts.googleapis.com → Google Fonts stylesheet import
+  # font-src    fonts.gstatic.com    → Actual .woff2 font files (IBM Plex Mono & Sans) are served from HERE
+  #                                    Missing this = fonts silently fall back to generic families
+  # script-src  'unsafe-inline'      → Scroll/nav JS is inline; required for IntersectionObserver code
+  #             'self'               → Covers /cdn-cgi/scripts/.../email-decode.min.js (CF-injected, same-origin)
+  # img-src     data:                → body::before uses data:image/svg+xml for the noise texture
+  #                                    Missing this = texture silently disappears, no console error
+  # connect-src fonts.googleapis.com → Required for <link rel="preconnect" href="https://fonts.googleapis.com">
+  #             fonts.gstatic.com    → Preconnect to font file host
+  # object-src  'none'               → Block Flash/plugins entirely
+  # base-uri    'self'               → Prevent base tag injection attacks
+  # frame-ancestors 'none'           → Stronger than X-Frame-Options, blocks all embedding
+  Content-Security-Policy: default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://fonts.googleapis.com https://fonts.gstatic.com; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
